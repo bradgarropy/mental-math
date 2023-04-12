@@ -7,7 +7,7 @@ const meta: MetaFunction = () => ({
 })
 
 const IndexRoute = () => {
-    return <Card number={14} />
+    return <Card />
 }
 
 export default IndexRoute

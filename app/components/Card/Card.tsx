@@ -3,14 +3,21 @@ import {useState} from "react"
 
 import NumberGrid from "~/components/NumberGrid"
 
-type CardProps = {
-    number: number
+const getRandomNumber = (min = 1, max = 30) => {
+    min = Math.ceil(min)
+    max = Math.floor(max)
+    return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-const Card: FC<CardProps> = ({number}) => {
+const Card: FC = () => {
     const [showAnswer, setShowAnswer] = useState(false)
+    const [number, setNumber] = useState(getRandomNumber())
 
     const onClick: MouseEventHandler<HTMLButtonElement> = () => {
+        if (showAnswer) {
+            setNumber(getRandomNumber())
+        }
+
         setShowAnswer(!showAnswer)
     }
 
