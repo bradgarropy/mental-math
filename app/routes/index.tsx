@@ -1,11 +1,13 @@
 import type {MetaFunction} from "@remix-run/node"
 
+import Card from "~/components/Card/Card"
+
 const meta: MetaFunction = () => ({
     title: "💿 remix starter | home",
 })
 
 const IndexRoute = () => {
-    return <h2 className="text-2xl font-bold">Home</h2>
+    return <Card number={14} />
 }
 
 export default IndexRoute

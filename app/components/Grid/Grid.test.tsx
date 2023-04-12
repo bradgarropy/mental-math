@@ -1,9 +1,9 @@
 import {render, screen} from "@testing-library/react"
 import {expect, test} from "vitest"
 
-import Footer from "~/components/Footer"
+import Grid from "~/components/Grid"
 
 test("renders", () => {
-    render(<Footer />)
-    expect(screen.getByText("Footer"))
+    render(<Grid number={32} />)
+    expect(screen.getByText("Grid"))
 })

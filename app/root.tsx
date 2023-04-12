@@ -8,8 +8,6 @@ import {
     ScrollRestoration,
 } from "@remix-run/react"
 
-import Footer from "~/components/Footer/Footer"
-import Header from "~/components/Header/Header"
 import tailwindStyles from "~/styles/tailwind.css"
 
 const meta: MetaFunction = () => ({
@@ -37,16 +35,10 @@ const App = () => {
                 <Links />
             </head>
 
-            <body className="bg-remix-black text-white">
-                <div className="grid min-h-screen grid-rows-layout">
-                    <Header />
-
-                    <div className="p-8">
-                        <Outlet />
-                    </div>
-
-                    <Footer />
-                </div>
+            <body>
+                <main className="grid h-screen w-screen place-items-center">
+                    <Outlet />
+                </main>
 
                 <ScrollRestoration />
                 <Scripts />

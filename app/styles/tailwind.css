@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    @font-face {
+        font-family: "Sriracha";
+        src: url("/fonts/sriracha.ttf") format("truetype");
+        font-display: swap;
+    }
+}
+
 nav > a.active {
     @apply underline decoration-remix-blue decoration-3 underline-offset-6;
 }
