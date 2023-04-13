@@ -1,4 +1,5 @@
 import type {FC, MouseEventHandler} from "react"
+import {useEffect} from "react"
 import {useState} from "react"
 
 import NumberGrid from "~/components/NumberGrid"
@@ -11,14 +12,45 @@ const getRandomNumber = (min = 1, max = 30) => {
 
 const Card: FC = () => {
     const [showAnswer, setShowAnswer] = useState(false)
-    const [number, setNumber] = useState(getRandomNumber())
+    const [number, setNumber] = useState<number>()
+
+    useEffect(() => {
+        setNumber(getRandomNumber())
+    }, [])
+
+    useEffect(() => {
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (
+                event.code === "Space" ||
+                event.code === "ArrowUp" ||
+                event.code === "ArrowDown"
+            ) {
+                setShowAnswer(showAnswer => !showAnswer)
+            }
+
+            if (event.code === "ArrowLeft" || event.code === "ArrowRight") {
+                setShowAnswer(false)
+                setNumber(getRandomNumber())
+            }
+        }
+
+        document.addEventListener("keydown", handleKeyDown)
+
+        return () => {
+            document.removeEventListener("keydown", handleKeyDown)
+        }
+    }, [showAnswer])
 
     const onClick: MouseEventHandler<HTMLButtonElement> = () => {
         if (showAnswer) {
             setNumber(getRandomNumber())
         }
 
-        setShowAnswer(!showAnswer)
+        setShowAnswer(showAnswer => !showAnswer)
+    }
+
+    if (number === undefined) {
+        return null
     }
 
     return (
