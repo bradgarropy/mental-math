@@ -55,6 +55,7 @@ const Card: FC = () => {
         onTap: () => flipCard(),
         trackTouch: true,
         trackMouse: true,
+        preventScrollOnSwipe: true,
     })
 
     if (number === undefined) {
