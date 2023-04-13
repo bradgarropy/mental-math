@@ -36,7 +36,7 @@ const App = () => {
             </head>
 
             <body>
-                <main className="grid h-screen w-screen place-items-center">
+                <main className="grid h-screen w-screen place-items-center p-4">
                     <Outlet />
                 </main>
 

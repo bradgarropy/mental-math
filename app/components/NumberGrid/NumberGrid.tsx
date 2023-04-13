@@ -11,7 +11,7 @@ const NumberGrid: FC<NumberGridProps> = ({number}) => {
     const grids = Array.from(Array(numGrids).keys())
 
     return (
-        <div className="grid gap-y-12">
+        <div className="grid w-3/4 gap-y-12">
             {grids.map(grid => {
                 return <Grid key={grid} number={number - grid * 10} />
             })}
