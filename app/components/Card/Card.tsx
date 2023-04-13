@@ -1,6 +1,7 @@
-import type {FC, MouseEventHandler} from "react"
+import type {FC} from "react"
 import {useEffect} from "react"
 import {useState} from "react"
+import {useSwipeable} from "react-swipeable"
 
 import NumberGrid from "~/components/NumberGrid"
 
@@ -20,17 +21,16 @@ const Card: FC = () => {
 
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
-            if (
-                event.code === "Space" ||
-                event.code === "ArrowUp" ||
-                event.code === "ArrowDown"
-            ) {
-                setShowAnswer(showAnswer => !showAnswer)
+            if (["Space"].includes(event.code)) {
+                flipCard()
             }
 
-            if (event.code === "ArrowLeft" || event.code === "ArrowRight") {
-                setShowAnswer(false)
-                setNumber(getRandomNumber())
+            if (
+                ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(
+                    event.code,
+                )
+            ) {
+                newCard()
             }
         }
 
@@ -41,29 +41,37 @@ const Card: FC = () => {
         }
     }, [showAnswer])
 
-    const onClick: MouseEventHandler<HTMLButtonElement> = () => {
-        if (showAnswer) {
-            setNumber(getRandomNumber())
-        }
-
+    const flipCard = () => {
         setShowAnswer(showAnswer => !showAnswer)
     }
+
+    const newCard = () => {
+        setShowAnswer(false)
+        setNumber(getRandomNumber())
+    }
+
+    const swipeHandlers = useSwipeable({
+        onSwiped: () => newCard(),
+        onTap: () => flipCard(),
+        trackTouch: true,
+        trackMouse: true,
+    })
 
     if (number === undefined) {
         return null
     }
 
     return (
-        <button
-            className="grid aspect-flashcard h-3/4 cursor-pointer place-items-center border-4 border-black"
-            onClick={onClick}
+        <div
+            {...swipeHandlers}
+            className="grid aspect-flashcard h-3/4 place-items-center border-4 border-black"
         >
             {showAnswer ? (
                 <span className="font-text text-xxl">{number}</span>
             ) : (
                 <NumberGrid number={number} />
             )}
-        </button>
+        </div>
     )
 }
 
