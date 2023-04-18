@@ -65,7 +65,7 @@ const Card: FC = () => {
     return (
         <div
             {...swipeHandlers}
-            className="grid aspect-flashcard max-h-screen max-w-screen-sm place-items-center border-4 border-black"
+            className="grid aspect-flashcard max-h-screen max-w-screen-sm place-items-center content-center border-4 border-black"
         >
             {showAnswer ? (
                 <span className="font-text text-xxl">{number}</span>
