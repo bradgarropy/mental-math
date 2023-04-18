@@ -65,10 +65,10 @@ const Card: FC = () => {
     return (
         <div
             {...swipeHandlers}
-            className="grid aspect-flashcard max-h-screen max-w-screen-sm place-items-center content-center border-4 border-black"
+            className="grid aspect-flashcard max-h-screen w-full max-w-screen-sm place-items-center content-center border-4 border-black @container"
         >
             {showAnswer ? (
-                <span className="font-text text-xxl">{number}</span>
+                <span className="font-text text-[50cqw]">{number}</span>
             ) : (
                 <NumberGrid number={number} />
             )}

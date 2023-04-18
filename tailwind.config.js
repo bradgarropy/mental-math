@@ -1,3 +1,5 @@
+const containerQueries = require("@tailwindcss/container-queries")
+
 /** @type {import('tailwindcss').Config} */
 
 const config = {
@@ -30,7 +32,7 @@ const config = {
             },
         },
     },
-    plugins: [],
+    plugins: [containerQueries],
 }
 
 module.exports = config
