@@ -12,7 +12,7 @@ import tailwindStyles from "~/styles/tailwind.css"
 
 const meta: MetaFunction = () => ({
     charset: "utf-8",
-    title: "💿 remix starter",
+    title: "🧮 mental math",
     viewport: "width=device-width,initial-scale=1",
 })
 
