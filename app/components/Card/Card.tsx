@@ -54,7 +54,7 @@ const Card: FC = () => {
         onSwiped: () => newCard(),
         onTap: () => flipCard(),
         trackTouch: true,
-        trackMouse: true,
+        trackMouse: false,
         preventScrollOnSwipe: true,
     })
 
