@@ -6,7 +6,7 @@ import useSettings from "~/hooks/useSettings"
 import {getRandomNumber} from "~/utils/random"
 
 const meta: MetaFunction = () => ({
-    title: "🧮 mental math",
+    title: "mental math",
 })
 
 const IndexRoute = () => {

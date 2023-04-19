@@ -5,7 +5,7 @@ import type {ChangeEventHandler, FormEventHandler} from "react"
 import useSettings from "~/hooks/useSettings"
 
 const meta: MetaFunction = () => ({
-    title: "🧮 settings",
+    title: "settings",
 })
 
 const SettingsRoute = () => {
