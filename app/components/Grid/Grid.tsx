@@ -21,6 +21,7 @@ const Grid: FC<GridProps> = ({number}) => {
                                 viewBox="0 0 100 100"
                                 className="h-5/6 w-5/6"
                                 xmlns="http://www.w3.org/2000/svg"
+                                aria-label="circle"
                             >
                                 <circle cx="50" cy="50" r="50" />
                             </svg>

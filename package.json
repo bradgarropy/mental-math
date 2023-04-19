@@ -1,7 +1,7 @@
 {
-    "name": "remix-starter",
-    "version": "1.3.2",
-    "description": "💿 remix starter",
+    "name": "mental-math",
+    "version": "1.0.0",
+    "description": "🤓 mental math",
     "keywords": [
         "typescript",
         "react",
@@ -14,9 +14,9 @@
         "tailwind",
         "hacktoberfest"
     ],
-    "homepage": "https://github.com/bradgarropy/remix-starter",
+    "homepage": "https://github.com/bradgarropy/mental-math",
     "bugs": {
-        "url": "https://github.com/bradgarropy/remix-starter/issues"
+        "url": "https://github.com/bradgarropy/mental-math/issues"
     },
     "license": "MIT",
     "author": {
@@ -26,7 +26,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/bradgarropy/remix-starter"
+        "url": "https://github.com/bradgarropy/mental-math"
     },
     "scripts": {
         "start": "remix dev",
@@ -59,26 +59,28 @@
         "@remix-run/dev": "^1.7.0",
         "@remix-run/eslint-config": "^1.7.0",
         "@remix-run/serve": "^1.7.0",
+        "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^14.0.0",
+        "@testing-library/user-event": "^14.4.3",
         "@types/lodash.isequal": "^4.5.6",
         "@types/react": "^18.0.15",
         "@types/react-dom": "^18.0.6",
         "@vitejs/plugin-react": "^3.1.0",
-        "@vitest/coverage-istanbul": "^0.29.2",
+        "@vitest/coverage-istanbul": "^0.30.1",
         "all-contributors-cli": "^6.20.0",
         "autoprefixer": "^10.4.8",
         "eslint": "^8.20.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-simple-import-sort": "^10.0.0",
-        "happy-dom": "^8.2.6",
+        "happy-dom": "^9.8.3",
         "plop": "^3.1.1",
         "postcss": "^8.4.16",
         "prettier": "^2.8.4",
         "prettier-plugin-tailwindcss": "^0.2.2",
         "tailwindcss": "^3.1.8",
-        "typescript": "^4.7.4",
+        "typescript": "^5.0.4",
         "vite-tsconfig-paths": "^4.0.5",
-        "vitest": "^0.29.2"
+        "vitest": "^0.30.1"
     },
     "engines": {
         "node": ">=14"

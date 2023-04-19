@@ -39,9 +39,6 @@ const Card: FC<CardProps> = ({number, onNext}) => {
                 case "ArrowRight":
                     nextCard()
                     break
-
-                default:
-                    break
             }
         }
 
