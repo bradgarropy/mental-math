@@ -9,7 +9,7 @@ const Grid: FC<GridProps> = ({number}) => {
     const circles = number < 10 ? number : 10
 
     return (
-        <div className="grid grid-cols-5 grid-rows-2 border-2 border-black">
+        <div className="grid grid-cols-5 grid-rows-2 rounded-sm border-2 border-black">
             {slots.map(slot => {
                 return (
                     <div

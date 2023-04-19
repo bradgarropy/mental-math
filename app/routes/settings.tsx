@@ -1,17 +1,20 @@
 import type {MetaFunction} from "@remix-run/node"
+import {useNavigate} from "@remix-run/react"
 import type {ChangeEventHandler, FormEventHandler} from "react"
-import {useState} from "react"
+
+import useSettings from "~/hooks/useSettings"
 
 const meta: MetaFunction = () => ({
     title: "🧮 settings",
 })
 
 const SettingsRoute = () => {
-    const [settings, setSettings] = useState({minimum: 1, maximum: 30})
+    const navigate = useNavigate()
+    const {settings, setSettings} = useSettings()
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = event => {
         setSettings(settings => {
-            const newSettings = {...settings}
+            const newSettings = Object.assign({}, settings)
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-expect-error
             newSettings[event.target.name] = event.target.valueAsNumber
@@ -21,34 +24,49 @@ const SettingsRoute = () => {
 
     const handleSubmit: FormEventHandler = event => {
         event.preventDefault()
-        window.localStorage.setItem("settings", JSON.stringify(settings))
+        navigate("/")
     }
 
     return (
-        <form id="settings" onSubmit={handleSubmit}>
-            <label htmlFor="minimum">Minimum</label>
+        <form
+            id="settings"
+            className="grid grid-cols-2 gap-6 text-xl"
+            onSubmit={handleSubmit}
+        >
+            <label htmlFor="minimum" className="font-bold">
+                Minimum
+            </label>
+
             <input
                 type="number"
                 name="minimum"
                 id="minimum"
                 min={1}
                 max={100}
-                value={settings.minimum}
+                value={settings?.minimum}
                 onChange={handleChange}
             />
 
-            <label htmlFor="maximum">Maximum</label>
+            <label htmlFor="maximum" className="font-bold">
+                Maximum
+            </label>
+
             <input
                 type="number"
                 name="maximum"
                 id="maximum"
                 min={1}
                 max={100}
-                value={settings.maximum}
+                value={settings?.maximum}
                 onChange={handleChange}
             />
 
-            <button type="submit">Save</button>
+            <button
+                type="submit"
+                className="col-span-2 mt-6 rounded-sm bg-blue-800 px-4 py-2 font-bold text-white"
+            >
+                Save
+            </button>
         </form>
     )
 }

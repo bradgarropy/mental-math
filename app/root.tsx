@@ -1,5 +1,6 @@
 import type {LinksFunction, MetaFunction} from "@remix-run/node"
 import {
+    Link,
     Links,
     LiveReload,
     Meta,
@@ -8,6 +9,7 @@ import {
     ScrollRestoration,
 } from "@remix-run/react"
 
+import {SettingsProvider} from "~/context/Settings"
 import tailwindStyles from "~/styles/tailwind.css"
 
 const meta: MetaFunction = () => ({
@@ -36,9 +38,14 @@ const App = () => {
             </head>
 
             <body>
-                <main className="grid h-screen w-screen place-items-center p-4">
-                    <Outlet />
-                </main>
+                <SettingsProvider>
+                    <main className="grid h-screen w-screen grid-rows-[auto,1fr] place-items-center content-start p-4">
+                        <Link to="/settings" className="justify-self-end">
+                            Settings
+                        </Link>
+                        <Outlet />
+                    </main>
+                </SettingsProvider>
 
                 <ScrollRestoration />
                 <Scripts />
